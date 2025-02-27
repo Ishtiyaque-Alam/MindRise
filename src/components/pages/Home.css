@@ -1,0 +1,115 @@
+.hero {
+    display: flex;
+    justify-content: center;  /* Centers the cards */
+    align-items: center;
+    gap: 20px;  /* Space between cards */
+    margin-top: 40px;
+    flex-wrap: wrap;  /* Ensures responsiveness */
+    
+    padding-bottom: 20px;
+}
+
+.cards {
+    width: 250px;  /* Adjusts the width of each card */
+    height: 300px; /* Adjusts the height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #315242; /* Background color */
+    border: 2px solid white; /* Green border */
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    color:white
+}
+.heroparent{
+    background-color: #325242;
+}
+.cards:hover {
+    transform: scale(1.05); /* Slight hover effect */
+}
+.container {
+    grid-template-columns: 40% 60%;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding: 50px;
+    background-color: #f7f0e6; /* Light background */
+}
+
+.text-content {
+    width: 50%;
+    max-width: 500px;
+}
+
+.text-content h1 {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.text-content p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #A5D6A7;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #81C784;
+}
+
+.image-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 50%;
+}
+
+.main-image {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.main-image img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.decorative-lines {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.small-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.small-images img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+}
