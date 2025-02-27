@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "timestamp": "2025-02-23T10:00:00Z",
+        "comments": [
+            "That's awesome! React is great.",
+            "Check out the official docs, super helpful!",
+            "Start with functional components, they're easier to manage."
+        ],
+        "post": "Just started learning React. Any tips?"
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "timestamp": "2025-02-23T11:30:00Z",
+        "comments": [
+            "TypeScript for large projects, JavaScript for quick prototyping.",
+            "TS has better type safety, but JS is more flexible.",
+            "It really depends on your project needs."
+        ],
+        "post": "What are your thoughts on TypeScript vs JavaScript?"
+    },
+    {
+        "id": 3,
+        "name": "David Brown",
+        "timestamp": "2025-02-23T12:45:00Z",
+        "comments": [
+            "Try Node.js with Express, it's beginner-friendly.",
+            "Django and Flask are great for Python lovers!",
+            "Follow some YouTube tutorials and build projects!"
+        ],
+        "post": "Best resources for learning backend development?"
+    },
+    {
+        "id": 4,
+        "name": "Alice Johnson",
+        "timestamp": "2025-02-23T14:00:00Z",
+        "comments": [
+            "Vue is easier to learn, React has more jobs.",
+            "React's ecosystem is huge!",
+            "Vue feels more intuitive to me."
+        ],
+        "post": "React or Vue – which one do you prefer?"
+    },
+    {
+        "id": 5,
+        "name": "Emily Wilson",
+        "timestamp": "2025-02-23T15:20:00Z",
+        "comments": [
+            "VS Code with Prettier and ESLint!",
+            "Dark theme all the way!",
+            "Custom keybindings save a lot of time."
+        ],
+        "post": "What’s your favorite coding setup?"
+    },
+    {
+        "id": 6,
+        "name": "Michael Lee",
+        "timestamp": "2025-02-23T16:40:00Z",
+        "comments": [
+            "Follow dev blogs like CSS-Tricks and Smashing Magazine.",
+            "Twitter has a great tech community!",
+            "Podcasts like Syntax.fm are really useful."
+        ],
+        "post": "How do you keep up with new tech trends?"
+    },
+    {
+        "id": 7,
+        "name": "Sophia Davis",
+        "timestamp": "2025-02-23T17:50:00Z",
+        "comments": [
+            "Redux Toolkit makes state management easier!",
+            "Context API works fine for small apps.",
+            "MobX is another cool alternative."
+        ],
+        "post": "How do you manage state efficiently in large apps?"
+    },
+    {
+        "id": 8,
+        "name": "Robert Clark",
+        "timestamp": "2025-02-23T18:30:00Z",
+        "comments": [
+            "Break down the problem into smaller parts.",
+            "Use `console.log()` wisely!",
+            "Read the error messages carefully, they help a lot."
+        ],
+        "post": "Debugging can be frustrating, any tips?"
+    },
+    {
+        "id": 9,
+        "name": "Olivia Martinez",
+        "timestamp": "2025-02-23T19:15:00Z",
+        "comments": [
+            "I prefer dark mode, less strain on my eyes.",
+            "Light mode for better readability!",
+            "Auto mode that switches based on time is the best."
+        ],
+        "post": "Dark mode or light mode – what’s your preference?"
+    },
+    {
+        "id": 10,
+        "name": "Daniel White",
+        "timestamp": "2025-02-23T20:00:00Z",
+        "comments": [
+            "Build small projects and experiment!",
+            "Read others' code, it helps improve your style.",
+            "Pair programming is a great way to learn."
+        ],
+        "post": "Best way to improve coding skills?"
+    }
+]

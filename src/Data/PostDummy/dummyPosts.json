@@ -1,0 +1,97 @@
+[
+    { "id": 1,
+     "groupId": 1,
+      "content": "Hello Developers!",
+       "author": "John Doe", 
+       "anonymous": false, 
+       "timestamp": "2025-02-23T10:00:00Z"
+    },
+    {
+    "id": 2,
+    "groupId": 1,
+    "content": "I'm new here, glad to join.",
+    "author": "Anonymous",
+    "anonymous": true,
+    "timestamp": "2025-02-23T11:00:00Z"
+    },
+    {
+        "id": 3,
+        "groupId": 1,
+        "content": "Looking forward to learning new things here!",
+        "author": "Jane Smith",
+        "anonymous": false,
+        "timestamp": "2025-02-23T12:00:00Z"
+    },
+    {
+        "id": 4,
+        "groupId": 2,
+        "content": "Does anyone have experience with Redux?",
+        "author": "Anonymous",
+        "anonymous": true,
+        "timestamp": "2025-02-23T12:30:00Z"
+    },
+    {
+        "id": 5,
+        "groupId": 1,
+        "content": "React or Vue – which one do you prefer?",
+        "author": "Alice Johnson",
+        "anonymous": false,
+        "timestamp": "2025-02-23T13:00:00Z"
+    },
+    {
+        "id": 6,
+        "groupId": 2,
+        "content": "Happy to connect with fellow developers!",
+        "author": "Anonymous",
+        "anonymous": true,
+        "timestamp": "2025-02-23T14:00:00Z"
+    },
+    {
+        "id": 7,
+        "groupId": 3,
+        "content": "Any recommendations for learning backend development?",
+        "author": "David Brown",
+        "anonymous": false,
+        "timestamp": "2025-02-23T15:00:00Z"
+    },
+    {
+        "id": 8,
+        "groupId": 3,
+        "content": "How do you manage state efficiently in large apps?",
+        "author": "Anonymous",
+        "anonymous": true,
+        "timestamp": "2025-02-23T16:00:00Z"
+    },
+    {
+        "id": 9,
+        "groupId": 1,
+        "content": "JavaScript or TypeScript? Thoughts?",
+        "author": "Emily Wilson",
+        "anonymous": false,
+        "timestamp": "2025-02-23T17:00:00Z"
+    },
+    {
+        "id": 10,
+        "groupId": 2,
+        "content": "Debugging can be frustrating, any tips?",
+        "author": "Anonymous",
+        "anonymous": true,
+        "timestamp": "2025-02-23T18:00:00Z"
+    },
+    {
+        "id": 11,
+        "groupId": 3,
+        "content": "How do you keep up with new tech trends?",
+        "author": "Michael Lee",
+        "anonymous": false,
+        "timestamp": "2025-02-23T19:00:00Z"
+    },
+    {
+        "id": 12,
+        "groupId": 1,
+        "content": "Excited to start a new project soon!",
+        "author": "Anonymous",
+        "anonymous": true,
+        "timestamp": "2025-02-23T20:00:00Z"
+    }
+]
