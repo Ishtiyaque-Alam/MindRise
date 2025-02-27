@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import DummyGroups from "../../../Data/GroupsDummy/DummyGroups.json";
 import CreateGroup from './CreateGroup';
+import "./community.css";
 
 const Community = () => {
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
-    // Check if groups exist in localStorage; if not, load dummy data
     const storedGroups = localStorage.getItem('groups');
     if (storedGroups) {
       setGroups(JSON.parse(storedGroups));
@@ -19,23 +19,27 @@ const Community = () => {
 
   const addGroup = (newGroup) => {
     setGroups(prevGroups => {
-      const updatedGroups = [...prevGroups, newGroup];
-      // Save updated groups to localStorage
+      const updatedGroups = [newGroup, ...prevGroups]; // Newest group first
       localStorage.setItem('groups', JSON.stringify(updatedGroups));
       return updatedGroups;
     });
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Community Groups</h1>
+    <div className="community-container">
+      <h1 className="community-title">Community Groups</h1>
       <CreateGroup addGroup={addGroup} />
-      <div>
+      <div className="group-list">
         {groups.map((group) => (
-          <div key={group.id} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px 0' }}>
-            <h2>{group.name}</h2>
-            <p>{group.description}</p>
-            <Link to={`/community/group/${group.id}`}>View Group</Link>
+          <div key={group.id} className="group-card">
+            <div className="group-header">
+              <img src={group.image || "/assets/default-avatar.png"} alt="Group" className="group-avatar" />
+              <h2 className="group-name">{group.name}</h2>
+            </div>
+            <p className="group-description">{group.description}</p>
+            <Link to={`/community/group/${group.id}`} className="view-group-button">
+              View Group
+            </Link>
           </div>
         ))}
       </div>

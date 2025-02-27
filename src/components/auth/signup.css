@@ -1,4 +1,3 @@
-/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 /* General Styles */
@@ -9,7 +8,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.login-container {
+.signup-container {
     background: url('../../assets/loginBackground.jpg') no-repeat center center fixed;
     background-size: cover;
     background-color: rgba(55, 118, 72, 0.2);
@@ -18,37 +17,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
   
-  .login-box {
+.signup-box {
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
     width: 350px;
-  }
-  
-  .input-group {
+}
+
+.input-group {
     margin-bottom: 15px;
     text-align: left;
-  }
-  
-  .input-group label {
+}
+
+.input-group label {
     display: block;
     font-weight: bold;
-  }
-  
-  .input-group input {
+}
+
+.input-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-  }
-  
-  .login-button {
-    background-color: rgba(49, 82,66); /* Semi-transparent green */
+}
+
+.signup-button {
+    background-color: rgba(49, 82, 66, 0.6); /* Semi-transparent green */
     color: white;
     padding: 10px 15px;
     border: none;
@@ -57,9 +56,23 @@
     width: 100%;
     font-size: 16px;
     transition: background-color 0.3s ease;
-  }
-  
-  .login-button:hover {
+}
+
+.signup-button:hover {
     background-color: rgba(0, 128, 0, 0.8); /* Slightly darker green on hover */
-  }
-  
+}
+
+.switch-login {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.switch-login a {
+    color: #317A5E;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.switch-login a:hover {
+    text-decoration: underline;
+}
