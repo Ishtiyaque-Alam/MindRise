@@ -1,31 +1,74 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import dummyposts from '../../../Data/PostDummy/dummyPosts.json';
 import './groupDetail.css';
+import { doc, collection, getDoc, addDoc, query, orderBy, onSnapshot } from "firebase/firestore";
+import { db } from "../../../firebase/firebase"; // Adjust path as needed
+import {useAuth} from "../../context/AuthContext" 
 
 const GroupDetail = () => {
-  const { groupId } = useParams();
+  const { groupId } = useParams(); // groupId is the document ID
+  const { user } = useAuth();
+  const [groupDetails, setGroupDetails] = useState(null);
   const [posts, setPosts] = useState([]);
   const [newMessage, setNewMessage] = useState('');
-
+  const [des,setdesc]=useState('');
+  const [name,setname]=useState('');
+  // Fetch group details from Firestore
   useEffect(() => {
-    const filteredPosts = dummyposts.filter(post => post.groupId === parseInt(groupId));
-    setPosts(filteredPosts);
+    const fetchGroupDetails = async () => {
+      try {
+        const groupRef = doc(db, "community", "default", "group", groupId);
+        
+        const groupSnap = await getDoc(groupRef);
+        if (groupSnap.exists()) {
+          setGroupDetails(groupSnap.data());
+        } else {
+          console.log("No such group!");
+        }
+      } catch (error) {
+        console.error("Error fetching group details:", error);
+      }
+    };
+
+    fetchGroupDetails();
   }, [groupId]);
 
-  const handleSendMessage = () => {
+  // Listen for posts in the group's "posts" subcollection (real-time updates)
+  useEffect(() => {
+    const postsRef = collection(db, "community", "default", "group", groupId, "posts");
+    const q = query(postsRef, orderBy("timestamp", "asc")); // Order posts chronologically
+    const unsubscribe = onSnapshot(
+      q,
+      (snapshot) => {
+        const postsList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setPosts(postsList);
+      },
+      (error) => {
+        console.error("Error fetching posts:", error);
+      }
+    );
+    return () => unsubscribe();
+  }, [groupId]);
+
+  // Handle sending a new message
+  const handleSendMessage = async () => {
     if (newMessage.trim() === '') return;
 
-    const newPost = {
-      id: posts.length + 1,
-      groupId: parseInt(groupId),
+    const postData = {
       content: newMessage,
-      author: 'You', 
+      author: user 
+  ? (user.displayName || ((email) => email.split('@')[0])(user.email))
+  : "Anonymous",
       timestamp: new Date().toISOString(),
     };
 
-    setPosts([...posts, newPost]);
-    setNewMessage('');
+    try {
+      const postsRef = collection(db, "community", "default", "group", groupId, "posts");
+      await addDoc(postsRef, postData);
+      setNewMessage('');
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
   };
 
   return (
@@ -39,7 +82,14 @@ const GroupDetail = () => {
       <div className="chat-main">
         {/* Header */}
         <div className="chat-header">
-          <h2>Group {groupId}</h2>
+          {groupDetails ? (
+            <>
+              <h2>{groupDetails.name}</h2>
+              <p>{groupDetails.description}</p>
+            </>
+          ) : (
+            <h2>Loading group...</h2>
+          )}
         </div>
 
         {/* Messages Section */}

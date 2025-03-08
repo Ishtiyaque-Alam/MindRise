@@ -1,20 +1,43 @@
 import React, { useState } from 'react';
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../../firebase/firebase"; // Adjust the path as needed
 
 const CreateGroup = ({ addGroup }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     // Create a new group object
     const newGroup = {
-      id: Date.now(), // Use a unique id
       name,
-      description
+      description,
+      createdAt: new Date().toISOString()
     };
-    addGroup(newGroup); // Callback to add group to parent component state
-    setName('');
-    setDescription('');
+
+    setLoading(true);
+    try {
+      // Define the subcollection "group" under the "community" document "default"
+      const groupCollectionRef = collection(db, "community", "default", "group");
+      // Add the new group to Firestore
+      const docRef = await addDoc(groupCollectionRef, newGroup);
+      
+      // Optionally, include the new document ID with the group data
+      const groupWithId = { id: docRef.id, ...newGroup };
+      
+      // Update the parent component state via callback
+      addGroup(groupWithId);
+      
+      // Reset the form
+      setName('');
+      setDescription('');
+    } catch (error) {
+      console.error("Error creating group in Firestore:", error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -28,7 +51,6 @@ const CreateGroup = ({ addGroup }) => {
         style={{ padding: '8px', marginRight: '10px' }}
       />
       <input
-        Classname=""
         type="text"
         placeholder="Group Description"
         value={description}
@@ -36,7 +58,9 @@ const CreateGroup = ({ addGroup }) => {
         required
         style={{ padding: '8px', marginRight: '10px' }}
       />
-      <button type="submit" style={{ padding: '8px 16px' }}>Create Group</button>
+      <button type="submit" style={{ padding: '8px 16px' }} disabled={loading}>
+        {loading ? "Creating..." : "Create Group"}
+      </button>
     </form>
   );
 };

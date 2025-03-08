@@ -1,28 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import DummyGroups from "../../../Data/GroupsDummy/DummyGroups.json";
 import CreateGroup from './CreateGroup';
 import "./community.css";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { db } from "../../../firebase/firebase"; // Adjust the path as needed
 
 const Community = () => {
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
-    const storedGroups = localStorage.getItem('groups');
-    if (storedGroups) {
-      setGroups(JSON.parse(storedGroups));
-    } else {
-      setGroups(DummyGroups);
-      localStorage.setItem('groups', JSON.stringify(DummyGroups));
-    }
+    const fetchGroups = async () => {
+      try {
+        // Reference to the "groups" subcollection under the "default" document in "community"
+        const groupsCollectionRef = collection(db, "community", "default", "group");
+        // Optionally, order groups by a field like "createdAt" in descending order
+        const q = query(groupsCollectionRef, orderBy("createdAt", "desc"));
+        const querySnapshot = await getDocs(q);
+        const groupsList = [];
+        querySnapshot.forEach((doc) => {
+          groupsList.push({ id: doc.id, ...doc.data() });
+        });
+        setGroups(groupsList);
+        console.log(groupsList);
+      } catch (error) {
+        console.error("Error fetching groups from Firestore:", error);
+      }
+    };
+
+    fetchGroups();
   }, []);
 
+  // Callback to update state if a new group is added via CreateGroup component
   const addGroup = (newGroup) => {
-    setGroups(prevGroups => {
-      const updatedGroups = [newGroup, ...prevGroups]; // Newest group first
-      localStorage.setItem('groups', JSON.stringify(updatedGroups));
-      return updatedGroups;
-    });
+    setGroups(prevGroups => [newGroup, ...prevGroups]);
   };
 
   return (
@@ -31,6 +41,7 @@ const Community = () => {
       <CreateGroup addGroup={addGroup} />
       <div className="group-list">
         {groups.map((group) => (
+          
           <div key={group.id} className="group-card">
             <div className="group-header">
               <img src={group.image || "/assets/default-avatar.png"} alt="Group" className="group-avatar" />
@@ -41,7 +52,8 @@ const Community = () => {
               View Group
             </Link>
           </div>
-        ))}
+        ))
+        }
       </div>
     </div>
   );

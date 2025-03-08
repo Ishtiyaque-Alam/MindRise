@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./signup.css";
+import {useAuth} from "../context/AuthContext";
+
 
 const Signup = () => {
+  const {signUp} =useAuth();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -13,9 +16,14 @@ const Signup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Signup successful!");
+    try {
+      await signUp(formData.email, formData.password);
+      alert("🎉 User signed up successfully!");
+    } catch (error) {
+      alert("❌ Error signing up:", error.message);
+    }
   };
 
   return (

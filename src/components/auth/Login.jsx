@@ -2,31 +2,26 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css"; // Ensure this file has the styles we discussed
+import { useAuth } from "../context/AuthContext";
+import Signup from "./Signup";
 
 const Login = () => {
+    const {signIn}=useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate(); // Used for navigation after login
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        if (!email || !password) {
-            setError("Please fill in both fields.");
-            return;
+        try {
+          await signIn(email,password);
+          alert("✅ Signed in successfully!");
+        } catch (error) {
+          console.error("❌ Sign-in error:", error.message);
         }
-        
-        setError(""); // Clear error message if valid
-        
-        console.log("Logging in:", email, password);
-
-        // Simulate login and redirect after 1 sec
-        setTimeout(() => {
-            navigate("/dashboard"); // Replace with actual route
-        }, 1000);
-    };
+      };
 
     return (
         <div className="login-container">
