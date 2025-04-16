@@ -4,7 +4,7 @@
       "location": "New York, NY",
       "distance": "5 miles",
       "description": "Experienced software developer with a passion for building scalable applications.",
-      "profilePhoto": "https://example.com/photos/johndoe.jpg",
+      "profilePhoto": "/images/johnDoe.png",
       "ratings": 4.5
     },
     {
@@ -12,7 +12,7 @@
       "location": "Los Angeles, CA",
       "distance": "8 miles",
       "description": "Creative graphic designer specializing in digital media and branding.",
-      "profilePhoto": "https://example.com/photos/janesmith.jpg",
+      "profilePhoto": "/images/ind1.png",
       "ratings": 4.2
     },
     {
@@ -20,7 +20,7 @@
       "location": "Chicago, IL",
       "distance": "3 miles",
       "description": "Professional writer and content creator with a knack for storytelling.",
-      "profilePhoto": "https://example.com/photos/alicejohnson.jpg",
+      "profilePhoto": "/images/ind2.png",
       "ratings": 4.7
     },
     {
@@ -28,7 +28,7 @@
       "location": "Houston, TX",
       "distance": "10 miles",
       "description": "Expert digital marketer focusing on SEO and social media strategies.",
-      "profilePhoto": "https://example.com/photos/bobwilliams.jpg",
+      "profilePhoto": "/images/ind3.png",
       "ratings": 4.3
     },
     {
@@ -36,7 +36,7 @@
       "location": "Phoenix, AZ",
       "distance": "7 miles",
       "description": "Seasoned project manager with experience in both agile and waterfall methodologies.",
-      "profilePhoto": "https://example.com/photos/chrislee.jpg",
+      "profilePhoto": "images/ind4.png",
       "ratings": 4.6
     },
     {
@@ -44,7 +44,7 @@
       "location": "Philadelphia, PA",
       "distance": "6 miles",
       "description": "Talented photographer capturing moments one shot at a time.",
-      "profilePhoto": "https://example.com/photos/dianamiller.jpg",
+      "profilePhoto": "images/ind5.png",
       "ratings": 4.8
     },
     {
@@ -52,7 +52,7 @@
       "location": "San Antonio, TX",
       "distance": "4 miles",
       "description": "Experienced data analyst who loves transforming data into actionable insights.",
-      "profilePhoto": "https://example.com/photos/evangarcia.jpg",
+      "profilePhoto": "images/ind6.png",
       "ratings": 4.4
     },
     {
@@ -60,7 +60,7 @@
       "location": "San Diego, CA",
       "distance": "9 miles",
       "description": "Passionate UX/UI designer dedicated to creating intuitive user experiences.",
-      "profilePhoto": "https://example.com/photos/fionadavis.jpg",
+      "profilePhoto": "images/ind7.png",
       "ratings": 4.9
     },
     {
@@ -68,7 +68,7 @@
       "location": "Dallas, TX",
       "distance": "11 miles",
       "description": "Innovative entrepreneur and business strategist with years of industry experience.",
-      "profilePhoto": "https://example.com/photos/georgemartin.jpg",
+      "profilePhoto": "images/ind8.png",
       "ratings": 4.1
     },
     {
@@ -76,7 +76,7 @@
       "location": "San Jose, CA",
       "distance": "2 miles",
       "description": "Dedicated educator and mentor committed to lifelong learning.",
-      "profilePhoto": "https://example.com/photos/hannahbrown.jpg",
+      "profilePhoto": "images/ind9.png",
       "ratings": 4.7
     }
   ]

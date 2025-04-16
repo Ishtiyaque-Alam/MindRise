@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import AnimatedCard from "../cards/Frontcard";
 import couples1 from "../../assets/illustrations/hp_illustrated_buttons_desktop_couples_default.png"
 import couples2 from "../../assets/illustrations/hp_illustrated_buttons_desktop_couples_movement.png"
@@ -16,9 +16,10 @@ import thera4 from "../../assets/therapist4.jpeg"
 import thera5 from "../../assets/therapist5.jpeg"
 import mainthera from "../../assets/mainthera.jpg"
 import image from "../../assets/btw.png"
-
+import ChatBot from "../chatbot/ChatBot";
 import Accordion from "../cards/Accordion";
 const Home = () => {
+  const [bot,setbot] =useState(false);
   return (
     <>
       <div className="heroparent" >
@@ -79,6 +80,8 @@ const Home = () => {
         <img src={image} style={{ maxHeight: "500px", width: "100%" }} />
       </div>
      <Accordion/>
+    <button className="bot" onClick={()=>{setbot(!bot)}}>let's talk</button>
+    {bot?<ChatBot />:()=>{setbot(false)}}
     </>
   );
 };

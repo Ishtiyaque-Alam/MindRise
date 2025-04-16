@@ -63,15 +63,43 @@ const TwitterFeed = () => {
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
-      <h1>Let's Talk</h1>
-      <NewTweet addTweet={addTweet} />
-      {tweets.length > 0 ? (
-        tweets.map(tweet => <Tweet key={tweet.id} tweet={tweet} />)
-      ) : (
-        <p>No posts yet. Be the first to share your thoughts!</p>
-      )}
-    </div>
+    <div
+  style={{
+    padding: '40px 20px',
+    maxWidth: '700px',
+    margin: '0 auto',
+    backgroundColor: '#f9f9f9',
+    minHeight: '100vh',
+    borderRadius: '12px',
+    boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '24px',
+  }}
+>
+  <h1 style={{ fontSize: '2rem', marginBottom: 0, color: '#333', textAlign: 'center' }}>
+    Let's Talk
+  </h1>
+
+  <NewTweet addTweet={addTweet} />
+
+  {tweets.length > 0 ? (
+    tweets.map((tweet) => <Tweet key={tweet.id} tweet={tweet} />)
+  ) : (
+    <p
+      style={{
+        textAlign: 'center',
+        fontStyle: 'italic',
+        color: '#666',
+        fontSize: '1rem',
+        marginTop: '20px',
+      }}
+    >
+      No posts yet. Be the first to share your thoughts!
+    </p>
+  )}
+</div>
+
   );
 };
 

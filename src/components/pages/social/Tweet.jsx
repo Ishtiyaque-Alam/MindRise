@@ -1,32 +1,69 @@
 import React from 'react';
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardActions,
+  Avatar,
+  IconButton,
+  Typography,
+  Divider,
+} from '@mui/material';
+import { Heart, MessageCircle, Share2, MoreVertical } from 'lucide-react';
 
 const Tweet = ({ tweet }) => {
   console.log(tweet);
   return (
-    <div style={{
-      border: '1px solid #ccc',
-      borderRadius: '8px',
-      padding: '10px',
-      marginBottom: '10px',
-      backgroundColor: '#fff'
-    }}>
-      <p style={{ fontWeight: 'bold', margin: 0 }}>
-        {tweet.name} <span style={{ fontSize: '12px', color: 'gray' }}>
-          {new Date(tweet.timestamp).toLocaleString()}
-        </span>
-      </p>
-      <p style={{ margin: '8px 0' }}>{tweet.post}</p>
-      {tweet.comments && tweet.comments.length > 0 && (
-        <div style={{ marginTop: '8px', paddingLeft: '10px', borderLeft: '2px solid #ccc' }}>
-          <p style={{ fontStyle: 'italic', marginBottom: '4px' }}>Comments:</p>
-          <ul style={{ listStyleType: 'disc', paddingLeft: '20px', margin: 0 }}>
-            {tweet.comments.map((comment, index) => (
-              <li key={index}>{comment}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
+    <Card sx={{ maxWidth: 600, marginBottom: 2 }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: '#1976d2' }}>
+            {tweet.name?.charAt(0).toUpperCase()}
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertical size={20} />
+          </IconButton>
+        }
+        title={tweet.name}
+        subheader={new Date(tweet.timestamp).toLocaleString()}
+      />
+      <CardContent>
+        <Typography variant="body1" sx={{ marginBottom: 1 }}>
+          {tweet.post}
+        </Typography>
+
+        {tweet.comments && tweet.comments.length > 0 && (
+          <>
+            <Divider sx={{ my: 1 }} />
+            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
+              Comments:
+            </Typography>
+            <ul style={{ paddingLeft: '1.2rem', marginTop: 4 }}>
+              {tweet.comments.map((comment, index) => (
+                <li key={index}>
+                  <Typography variant="body2" color="text.secondary">
+                    {comment}
+                  </Typography>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="like">
+          <Heart size={20} />
+        </IconButton>
+        <IconButton aria-label="comment">
+          <MessageCircle size={20} />
+        </IconButton>
+        <IconButton aria-label="share">
+          <Share2 size={20} />
+        </IconButton>
+      </CardActions>
+    </Card>
   );
 };
 

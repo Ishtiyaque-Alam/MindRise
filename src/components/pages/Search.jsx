@@ -69,6 +69,7 @@ const Search = () => {
             <Link
               to={`/profile/${index}`}
               key={index}
+              
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <div 
